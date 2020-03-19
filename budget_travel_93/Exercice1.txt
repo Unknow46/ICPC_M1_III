@@ -1,0 +1,14 @@
+Le problème est de trouver le prix minimum afin de voyager d'une ville à l'autre.
+
+Plusieurs facteurs a prendre en compte :
+	- La distance a effectuer;
+	- La capacité du réservoir de la voiture;
+	- La consommation par kilomètres de la voiture;
+	- Le prix en dollars pour remplir la voiture;
+	- Le nombre de station (inférieur a 51) sur la route;
+	- La distance de la ville d'origine a la station service
+	- Le prix du gasoil vendu a la station
+	- Le chauffeur prend un snack (2.00) a chaque station.
+
+Résultat :
+	Avoir le prix minimum de nourriture que le chauffeur aura pris et le prix du gasoil mis

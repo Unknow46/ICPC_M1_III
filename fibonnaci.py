@@ -7,7 +7,5 @@ def fibWord(n):
         Sn += Sn_1 
         Sn_1 = tmp 
     return Sn 
-  
-# driver program 
 n = 6
 print (fibWord(n)) 

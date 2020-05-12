@@ -129,7 +129,7 @@ vector<string> ParentUnknown(const string & parent, const string & enfant, bool 
 	string enfantABO = Separation(enfant, enfantRh);
 	
 	positive = true;
-	negative = NegativeParent(autre_parent, enfantRg);
+	negative = NegativeParent(autre_parent, enfantRh);
 	
 	return generationTypePossible(getUnknownParent(autre_parentABO, enfantABO));
 
@@ -145,7 +145,7 @@ vector<string>ChildUnknown(const string & parent_one, const string & parent_two,
 	positive = PositiveChild(parent_oneRh, parent_twoRh);
 	negative = true;
 	
-	return generationTypePossible(findChildUnknown(parent_oneABO, parent_twoABO))
+	return generationTypePossible(findChildUnknown(parent_oneABO, parent_twoABO));
 	
 }
 
@@ -158,9 +158,9 @@ void Affichage(const vector<string> & valeur_possible, const bool & positive, co
 	}
 	else {
 		cout << '{';
-		bool premier = true;
+		bool first = true;
 		
-		for (int i = 0; i < valeur_possible.size(); i++) {
+		for (int i = 0; i < (int)valeur_possible.size(); i++) {
 			if (positive) {
 				if (!first) {
 					cout << ", ";
@@ -177,7 +177,7 @@ void Affichage(const vector<string> & valeur_possible, const bool & positive, co
 			}
 			
 		}
-		coout << "}";
+		cout << "}";
 	}
 }
 
@@ -188,12 +188,13 @@ int main() {
 	
 	while (cin >> parent_one >> parent_two >> enfant, parent_one != "E") {
 	
-		bool positive = false, negative = false;
+		bool positive = false; 
+		bool negative = false;
 		
-		cout << "Case " << type++ << ": ";
+		cout << "Case " << Type++ << ": ";
 		
 		if (parent_one == "?") {
-			vector<string> valeur_possible = ParentUnknown(parent_two, positive, negative);
+			vector<string> valeur_possible = ParentUnknown(parent_two,enfant, positive, negative);
 			Affichage(valeur_possible, positive, negative);
 		}
 		else {
@@ -201,7 +202,7 @@ int main() {
 		}
 		cout << ' ';
 		if (parent_two == "?") {
-			vector<string> valeur_possible = ParentUnknown(parent_one, positive, negative);
+			vector<string> valeur_possible = ParentUnknown(parent_one,enfant, positive, negative);
 			Affichage(valeur_possible, positive, negative);
 		}
 		else {
